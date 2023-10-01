@@ -35,6 +35,7 @@ export default function SignupForm () {
       <div className='w-full flex justify-center mt-10'>
         <button className='border border-blue-900 bg-blue-600 text-white font-medium rounded-xl h-10 w-96' type='submit'>Registarse</button>
       </div>
+      {!store.signupForm.valid && <span className='text-center text-red-500'>El formulario es invalido, intenta otra vez.</span>}
     </form>
   )
 }

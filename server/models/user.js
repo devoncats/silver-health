@@ -25,10 +25,6 @@ const userSchema = new mongoose.Schema({
     required: true
   },
 
-  insured: {
-    type: Boolean
-  },
-
   age: Number,
 
   residency: String,

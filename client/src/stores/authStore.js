@@ -1,12 +1,14 @@
 import { create } from 'zustand'
 import axios from 'axios'
+import userSchema from '../validations/UserValidation'
 
 const AuthStore = create(set => ({
   loggedIn: null,
 
   loginForm: {
     document: '',
-    password: ''
+    password: '',
+    valid: true
   },
 
   signupForm: {
@@ -16,7 +18,8 @@ const AuthStore = create(set => ({
     surname: '',
     age: '',
     residency: '',
-    phone: ''
+    phone: '',
+    valid: true
   },
 
   handleLoginFormChange: (e) => {
@@ -59,6 +62,15 @@ const AuthStore = create(set => ({
 
   signup: async () => {
     const { signupForm } = AuthStore.getState()
+
+    const isValid = await userSchema.isValid(signupForm)
+
+    set(state => ({
+      signupForm: {
+        ...state.signupForm,
+        valid: isValid
+      }
+    }))
 
     const res = await axios.post('user/signup', signupForm)
 
