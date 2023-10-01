@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema({
     required: true
   },
 
+  insured: {
+    type: Boolean
+  },
+
   age: Number,
 
   residency: String,
@@ -32,7 +36,9 @@ const userSchema = new mongoose.Schema({
   phone: {
     type: String,
     max: 8
-  }
+  },
+
+  avatar: String
 })
 
 module.exports = mongoose.model('User', userSchema)

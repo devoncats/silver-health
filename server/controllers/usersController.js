@@ -7,6 +7,7 @@ async function signup (req, res) {
   try {
   // get data from request body
     const { document, password, name, surname, age, residency, phone } = req.body
+    const avatar = req.file ? req.file.path : undefined
 
     // hash password
     const hashedPassword = bycrypt.hashSync(password, 8)
@@ -19,7 +20,8 @@ async function signup (req, res) {
       surname,
       age,
       residency,
-      phone
+      phone,
+      avatar
     })
 
     // respond to server with new user

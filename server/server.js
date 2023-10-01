@@ -6,8 +6,7 @@ const express = require('express')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const connectDB = require('./config/connectDB')
-const usersController = require('./controllers/usersController')
-const requireAuth = require('./middleware/requireAuth')
+const userRouter = require('./routes/User')
 
 // create express app
 const app = express()
@@ -19,15 +18,13 @@ app.use(cors({
   origin: true,
   credentials: true
 }))
+app.use('/uploads', express.static('uploads'))
 
 // connect to database
 connectDB()
 
 // routing
-app.post('/signup', usersController.signup)
-app.post('/login', usersController.login)
-app.get('/logout', usersController.logout)
-app.get('/check-auth', requireAuth, usersController.checkAuth)
+app.use('/user', userRouter)
 
 // start the server
 app.listen(process.env.PORT)
