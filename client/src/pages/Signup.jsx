@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom'
 import SignupForm from '../layout/SignupForm'
 import Logo from '../assets/Logo'
+import Tutorial from '../components/Tutorial'
 
 export default function Signup () {
   const background = '/background.svg'
   return (
     <main className='h-screen w-screen flex'>
+      <article className='absolute left-5 top-5'>
+        <Tutorial />
+      </article>
+
       <article className='flex flex-1'>
         <img className='object-cover' src={background} alt='' />
       </article>

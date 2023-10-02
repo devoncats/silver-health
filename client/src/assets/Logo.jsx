@@ -1,6 +1,6 @@
 import { BiHealth } from 'react-icons/bi'
 
-export default function logo () {
+export default function Logo () {
   return (
     <section className='w-fit flex items-center gap-2 p-2'>
       <BiHealth className='text-3xl text-blue-600' />

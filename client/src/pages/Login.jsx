@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom'
 import LoginForm from '../layout/LoginForm'
 import Logo from '../assets/Logo'
+import Tutorial from '../components/Tutorial'
 
 export default function Login () {
   const background = '/background.svg'
   return (
     <main className='h-screen w-screen flex'>
+      <article className='absolute right-5 top-5'>
+        <Tutorial />
+      </article>
       <article className='flex flex-1 flex-col px-12 py-8'>
         <Link to='/'><Logo /></Link>
         <section className='h-full flex flex-col items-center justify-center gap-8'>
