@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 import Logo from '../assets/Logo'
 
 export default function Header () {
@@ -8,7 +9,7 @@ export default function Header () {
 
       <nav>
         <ul className='flex gap-8 text-gray-500'>
-          <Link><li className='hover:text-black'>Servicios</li></Link>
+          <HashLink smooth to='#services'><li className='hover:text-black'>Servicios</li></HashLink>
           <Link><li className='hover:text-black'>Sobre nosotros</li></Link>
           <Link><li className='hover:text-black'>Guias</li></Link>
         </ul>
